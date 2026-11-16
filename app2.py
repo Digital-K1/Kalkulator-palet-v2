@@ -82,16 +82,15 @@ def preracunaj(vozilo, tovor):
         
         potrebna_d = max(m1['p'].poraba_dolzine, m2['p'].poraba_dolzine if m2 else 0)
         
-        if trenutni_x + necesaria_d := potrebna_d:
-            if trenutni_x + potrebna_d <= vozilo.dolzina:
-                for n in range(1, m1['k'] + 1): izbrane.append((trenutni_x, 0, m1['p'].poraba_dolzine, 120, n, m1['p'].ime, m1['p'].barva))
-                if m2:
-                    for n in range(1, m2['k'] + 1): izbrane.append((trenutni_x, 120, m2['p'].poraba_dolzine, 120, n, m2['p'].ime, m2['p'].barva))
-                trenutni_x += potrebna_d
-            else:
-                talna_mesta.insert(0, m1)
-                if m2: talna_mesta.insert(1, m2)
-                break
+        if trenutni_x + potrebna_d <= vozilo.dolzina:
+            for n in range(1, m1['k'] + 1): izbrane.append((trenutni_x, 0, m1['p'].poraba_dolzine, 120, n, m1['p'].ime, m1['p'].barva))
+            if m2:
+                for n in range(1, m2['k'] + 1): izbrane.append((trenutni_x, 120, m2['p'].poraba_dolzine, 120, n, m2['p'].ime, m2['p'].barva))
+            trenutni_x += potrebna_d
+        else:
+            talna_mesta.insert(0, m1)
+            if m2: talna_mesta.insert(1, m2)
+            break
             
     ostanek = []
     for m in talna_mesta:
